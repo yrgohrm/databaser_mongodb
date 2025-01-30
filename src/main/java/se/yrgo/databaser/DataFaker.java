@@ -79,9 +79,11 @@ public final class DataFaker {
         for (int i = 0; i < count; i++) {
             String name = faker.commerce().productName();
             String description = name + " of the most excellent quality by " + faker.commerce().vendor() + ".";
+            TurnoverRatio[] torValues = TurnoverRatio.values();
+            TurnoverRatio turnoverRatio = torValues[faker.number().numberBetween(0, torValues.length)];
             BigDecimal price = BigDecimal.valueOf(faker.number().numberBetween(10, 100));
 
-            Product product = new Product(name, description, price);
+            Product product = new Product(name, description, turnoverRatio, price);
             productsToAdd.add(product);
         }
 

@@ -12,11 +12,13 @@ public record Product(
         String productId,
         String name,
         String description,
+        TurnoverRatio turnoverRatio,
         BigDecimal price) {
 
     public Product(String name,
             String description,
+            TurnoverRatio turnoverRatio,
             BigDecimal price) {
-        this(new ObjectId().toHexString(), name, description, price);
+        this(new ObjectId().toHexString(), name, description, turnoverRatio, price);
     }
 }
