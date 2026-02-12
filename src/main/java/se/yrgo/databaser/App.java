@@ -83,7 +83,7 @@ public class App {
 
             var res = rawProducts.aggregate(
                 List.of(
-                    Aggregates.match(Filters.eq("_id", new ObjectId("679a3d4600c2902fe1794c4b"))),
+                    Aggregates.match(Filters.eq("_id", new ObjectId(bronzeThing.productId()))),
                     Aggregates.lookup("inventoryLocations", "_id", "productId", "locations"),
                     Aggregates.project(Projections.fields(
                         Projections.include("name", "price", "locations.location", "locations.quantity")
